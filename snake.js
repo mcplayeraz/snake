@@ -137,6 +137,34 @@ function changeDirection(e) {
 	}
 }
 
+function dir_up() {
+	if (velocityY != 1) {
+		velocityX = 0;
+		velocityY = -1;
+	}
+}
+
+function dir_down() {
+	if (velocityY != -1) {
+		velocityX = 0;
+		velocityY = 1;
+	}
+}
+
+function dir_left() {
+	if (velocityX != 1) {
+		velocityX = -1;
+		velocityY = 0;
+	}
+}
+
+function dir_right() {
+	if (velocityX != -1) {
+		velocityX = 1;
+		velocityY = 0;
+	}
+}
+
 function placefood() {
 	// (0 - 1) * cols/rows -> (0 - 19.9999) -> (0 - 19) * 25
 	foodX = Math.floor(Math.random() * cols) * blockSize;
