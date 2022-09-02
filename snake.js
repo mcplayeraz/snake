@@ -24,6 +24,8 @@ var score = 1;
 var level;
 var GameOver = false;
 var updateTimer;
+var PC;
+var button;
 
 window.onload = function() {
 	board = document.getElementById("board"); 
@@ -31,6 +33,11 @@ window.onload = function() {
 	board.width = cols * blockSize; 
 	context = board.getContext("2d"); // Used for drawing on the board
 	level = document.getElementById("level");
+	button = document.getElementById("button");
+	PC = isPC();
+	if (PC) {
+		document.getElementById("body").removeChild(button);
+	}
 
 	placefood();
 	document.addEventListener("keyup", changeDirection);
@@ -134,6 +141,8 @@ function changeDirection(e) {
 	} else if (e.code == "ArrowRight" && velocityX != -1) {
 		velocityX = 1;
 		velocityY = 0;
+	} else if (e.code == "Space") {
+		gameRestart();
 	}
 }
 
@@ -197,16 +206,34 @@ function reportOver(s) {
 	} else {
 		alert("Error when reading data. ")
 	}
+	gameRestart();
+}
+
+function gameRestart() {
 	clearInterval(updateTimer);
 	GameOver = false;
 	speed = 1;
 	snakeX = blockSize * 5; 
 	snakeY = blockSize * 5; 
 	snakeBody = [];
-	velocityX, velocityY = 0, 0; 
+	velocityX = 0; 
+	velocityY = 0; 
 	score = 1; 
 	document.getElementById("score").innerHTML = score;
 	level.innerHTML = 1;
 	document.getElementById("speed").innerHTML = speed; 
 	updateTimer = setInterval(update, 200/speed);
+}
+
+function isPC() {
+	var userAgentInfo = navigator.userAgent;
+	var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod']; 
+	var flag = true;
+	for (let i = 0; i < Agents.length; i++) {
+		if (userAgentInfo.indexOf(Agents[i]) != -1) {
+			flag = false;
+			break;
+		}
+	}
+	return flag;
 }
