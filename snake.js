@@ -27,6 +27,28 @@ var updateTimer;
 var PC;
 var button;
 
+// Music
+const music1 = new Audio('sound/Rubbish.mp3');
+music1.loop = false;
+music1.playbackRate = 1;
+music1.currentTime = 0;
+const music2 = new Audio('sound/Shin.mp3');
+music2.loop = false;
+music2.playbackRate = 1;
+music2.currentTime = 0;
+const music3 = new Audio('sound/Ropeway.mp3');
+music3.loop = false;
+music3.playbackRate = 1;
+music3.currentTime = 0;
+const music4 = new Audio('sound/Brave.mp3');
+music4.loop = false;
+music4.playbackRate = 1;
+music4.currentTime = 0;
+const music5 = new Audio('sound/Openning.mp3');
+music5.loop = false;
+music5.playbackRate = 1;
+music5.currentTime = 0;
+
 window.onload = function() {
 	board = document.getElementById("board"); 
 	board.height = rows * blockSize; 
@@ -87,7 +109,6 @@ function update() {
 	for (let i = 0; i < snakeBody.length; i++) {
 		if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
 			GameOver = true;
-			alert("You have ate yourself!!! ");
 			reportOver(speed); 
 			return; 
 		}
@@ -194,14 +215,19 @@ function placefood() {
 
 function reportOver(s) {
 	if (s == 1) {
+		music1.play();
 		alert("弱爆了！！！"); 
 	} else if (s == 2) {
+		music2.play();
 		alert("。。。"); 
 	} else if (s == 3) {
+		music3.play();
 		alert("还不错嘛 "); 
 	} else if (s == 4) {
+		music4.play();
 		alert("NB. "); 
 	} else if (s == 5) {
+		music5.play();
 		alert("You are the SNAKE! "); 
 	} else {
 		alert("Error when reading data. ")
