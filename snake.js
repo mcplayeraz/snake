@@ -57,9 +57,9 @@ window.onload = function() {
 	level = document.getElementById("level");
 	button = document.getElementById("button");
 	PC = isPC();
-	if (PC) {
-		document.getElementById("body").removeChild(button);
-	}
+	/*if (!PC) {
+		
+	}*/
 
 	placefood();
 	document.addEventListener("keyup", changeDirection);
