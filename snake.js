@@ -56,10 +56,6 @@ window.onload = function() {
 	context = board.getContext("2d"); // Used for drawing on the board
 	level = document.getElementById("level");
 	button = document.getElementById("button");
-	PC = isPC();
-	/*if (!PC) {
-		
-	}*/
 
 	placefood();
 	document.addEventListener("keyup", changeDirection);
