@@ -25,6 +25,7 @@ var level;
 var GameOver = false;
 var updateTimer;
 var PC;
+var soundFirst = true;
 var button;
 
 // Music
@@ -163,7 +164,10 @@ function dir_up() {
 		velocityX = 0;
 		velocityY = -1;
 	}
-	audioPhone();
+	if (soundFirst) {
+		audioPhone();
+		soundFirst = false;
+	}
 }
 
 function dir_down() {
@@ -171,7 +175,10 @@ function dir_down() {
 		velocityX = 0;
 		velocityY = 1;
 	}
-	audioPhone();
+	if (soundFirst) {
+		audioPhone();
+		soundFirst = false;
+	}
 }
 
 function dir_left() {
@@ -179,7 +186,10 @@ function dir_left() {
 		velocityX = -1;
 		velocityY = 0;
 	}
-	audioPhone();
+	if (soundFirst) {
+		audioPhone();
+		soundFirst = false;
+	}
 }
 
 function dir_right() {
@@ -187,7 +197,10 @@ function dir_right() {
 		velocityX = 1;
 		velocityY = 0;
 	}
-	audioPhone();
+	if (soundFirst) {
+		audioPhone();
+		soundFirst = false;
+	}
 }
 
 function placefood() {
