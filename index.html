@@ -25,6 +25,7 @@
 		<script>
 			PC = isPC();
 			if (!PC) {
+				blockSize = 15;
 				document.writeln("<table id=\"button\"><tr><td><img src=\"pic/Up.png\" onclick=\"dir_up()\"></td></tr><tr><td><img src=\"pic/Left.png\" onclick=\"dir_left()\"><img src=\"pic/Restart.png\" onclick=\"gameRestart()\"><img src=\"pic/Right.png\" onclick=\"dir_right()\"></td></tr><tr><td><img src=\"pic/Down.png\" onclick=\"dir_down()\"></td></tr></table>");
 			}
 		</script>
