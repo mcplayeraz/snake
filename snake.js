@@ -31,23 +31,18 @@ var button;
 const music1 = new Audio('sound/Rubbish.mp3');
 music1.loop = false;
 music1.playbackRate = 1;
-music1.currentTime = 0;
 const music2 = new Audio('sound/Shin.mp3');
 music2.loop = false;
 music2.playbackRate = 1;
-music2.currentTime = 0;
 const music3 = new Audio('sound/Ropeway.mp3');
 music3.loop = false;
 music3.playbackRate = 1;
-music3.currentTime = 0;
 const music4 = new Audio('sound/Brave.mp3');
 music4.loop = false;
 music4.playbackRate = 1;
-music4.currentTime = 0;
 const music5 = new Audio('sound/Openning.mp3');
 music5.loop = false;
 music5.playbackRate = 1;
-music5.currentTime = 0;
 
 window.onload = function() {
 	board = document.getElementById("board"); 
@@ -168,6 +163,7 @@ function dir_up() {
 		velocityX = 0;
 		velocityY = -1;
 	}
+	audioPhone();
 }
 
 function dir_down() {
@@ -175,6 +171,7 @@ function dir_down() {
 		velocityX = 0;
 		velocityY = 1;
 	}
+	audioPhone();
 }
 
 function dir_left() {
@@ -182,6 +179,7 @@ function dir_left() {
 		velocityX = -1;
 		velocityY = 0;
 	}
+	audioPhone();
 }
 
 function dir_right() {
@@ -189,6 +187,7 @@ function dir_right() {
 		velocityX = 1;
 		velocityY = 0;
 	}
+	audioPhone();
 }
 
 function placefood() {
@@ -258,4 +257,22 @@ function isPC() {
 		}
 	}
 	return flag;
+}
+
+function audioPhone() {
+	music1.play();
+	music1.pause();
+	music1.currentTime = 0;
+	music2.play();
+	music2.pause();
+	music2.currentTime = 0;
+	music3.play();
+	music3.pause();
+	music3.currentTime = 0;
+	music4.play();
+	music4.pause();
+	music4.currentTime = 0;
+	music5.play();
+	music5.pause();
+	music5.currentTime = 0;
 }
